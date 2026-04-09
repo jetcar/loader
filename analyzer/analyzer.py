@@ -15,9 +15,10 @@ import json
 import math
 import os
 import random
+import re
 import sys
 from collections import Counter
-from datetime import datetime
+from datetime import datetime, timezone
 
 # OpenAI is optional; statistical analysis works without it.
 try:
@@ -209,7 +210,6 @@ def generate_ai_suggestions(
     content = response.choices[0].message.content.strip()
 
     # Parse the JSON array
-    import re
     match = re.search(r"\[.*?\]", content, re.DOTALL)
     if not match:
         raise ValueError(f"Unexpected AI response format: {content}")
@@ -298,7 +298,7 @@ def main() -> None:
             print("No OPENAI_API_KEY set – using statistical suggestions only.")
 
     output = {
-        "generated_at": datetime.utcnow().isoformat() + "Z",
+        "generated_at": datetime.now(timezone.utc).isoformat(),
         "game": "Jokker",
         "source": "https://www.eestiloto.ee/et/results/?game=JOKKER",
         "suggestions": suggestions,

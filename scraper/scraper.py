@@ -10,7 +10,7 @@ import os
 import re
 import sys
 import time
-from datetime import datetime
+from datetime import datetime, timezone
 
 import requests
 from bs4 import BeautifulSoup
@@ -241,7 +241,7 @@ def fetch_all_results(max_pages: int = 10) -> list[dict]:
 def save_results(draws: list[dict], path: str = OUTPUT_FILE) -> None:
     os.makedirs(os.path.dirname(path), exist_ok=True)
     payload = {
-        "fetched_at": datetime.utcnow().isoformat() + "Z",
+        "fetched_at": datetime.now(timezone.utc).isoformat(),
         "total_draws": len(draws),
         "draws": draws,
     }
