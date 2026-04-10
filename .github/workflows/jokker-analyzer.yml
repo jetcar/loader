@@ -1,0 +1,118 @@
+name: Jokker Results Analyzer
+
+on:
+  schedule:
+    # Run every day at 21:00 UTC (after the daily Jokker draw at ~18:35 EET / 15:35 UTC)
+    - cron: "0 21 * * *"
+  workflow_dispatch:
+    inputs:
+      max_pages:
+        description: "Number of result pages to scrape"
+        required: false
+        default: "10"
+
+permissions:
+  contents: write   # needed to create releases and upload assets
+
+jobs:
+  analyze-and-release:
+    name: Scrape, Analyze and Release
+    runs-on: ubuntu-latest
+
+    steps:
+      # -----------------------------------------------------------------------
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      # -----------------------------------------------------------------------
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      # -----------------------------------------------------------------------
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # -----------------------------------------------------------------------
+      - name: Scrape Jokker results
+        env:
+          SCRAPER_MAX_PAGES: ${{ github.event.inputs.max_pages || '10' }}
+        run: python scraper/scraper.py
+
+      # -----------------------------------------------------------------------
+      - name: Analyze results and generate suggestions
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: python analyzer/analyzer.py
+
+      # -----------------------------------------------------------------------
+      - name: Show suggestions summary
+        run: |
+          echo "=== Generated suggestions ==="
+          python - <<'EOF'
+          import json, sys
+          with open("data/suggestions.json") as f:
+              data = json.load(f)
+          s = data["suggestions"]
+          print(f"Generated at : {data['generated_at']}")
+          print(f"Draws analyzed: {data['analysis']['total_draws_analyzed']}")
+          print(f"Top 5  : {s['top5']}")
+          print(f"Top 50 : {len(s['top50'])} numbers")
+          print(f"Top 500: {len(s['top500'])} numbers")
+          EOF
+
+      # -----------------------------------------------------------------------
+      - name: Determine release tag
+        id: tag
+        run: |
+          TAG="results-$(date -u +'%Y-%m-%d')"
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "Release tag: $TAG"
+
+      # -----------------------------------------------------------------------
+      - name: Delete existing release for today (if re-running)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG="${{ steps.tag.outputs.tag }}"
+          if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" > /dev/null 2>&1; then
+            echo "Deleting existing release $TAG"
+            gh release delete "$TAG" --repo "$GITHUB_REPOSITORY" --yes
+            # Also delete the tag so the new release can use it
+            git push --delete origin "refs/tags/$TAG" 2>/dev/null || true
+          else
+            echo "No existing release for $TAG"
+          fi
+
+      # -----------------------------------------------------------------------
+      - name: Create GitHub release with suggestion artifacts
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG="${{ steps.tag.outputs.tag }}"
+          DRAWS=$(python -c "import json; d=json.load(open('data/suggestions.json')); print(d['analysis']['total_draws_analyzed'])")
+          AI_USED=$(python -c "import json; d=json.load(open('data/suggestions.json')); print(d['analysis'].get('ai_top5_used', False))")
+
+          gh release create "$TAG" \
+            --repo "$GITHUB_REPOSITORY" \
+            --title "Jokker Suggestions – $(date -u +'%Y-%m-%d')" \
+            --notes "## Jokker number suggestions – $(date -u +'%Y-%m-%d')
+
+          Generated automatically by analyzing **${DRAWS}** historical draws from
+          [eestiloto.ee](https://www.eestiloto.ee/et/results/?game=JOKKER).
+
+          AI-enhanced top-5: **${AI_USED}**
+
+          ### Files
+          | File | Description |
+          |------|-------------|
+          | \`suggestions.json\` | Full suggestions + analysis (top 5 / 50 / 500 numbers) |
+          | \`jokker_results.json\` | Raw scraped draw history |
+
+          Download \`suggestions.json\` to get the latest suggested numbers.
+          The Windows app picks this file up automatically from the latest release.
+          " \
+            data/suggestions.json \
+            data/jokker_results.json
