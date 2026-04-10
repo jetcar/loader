@@ -207,6 +207,65 @@ def merge_ranked_suggestions(
     return {"top5": _stamp(top5), "top50": _stamp(top50), "top500": _stamp(top500)}
 
 
+def load_previous_suggestions() -> dict | None:
+    """
+    Load the most recently generated suggestions file from DATA_DIR.
+    Returns None if no previous file exists.
+    """
+    import glob
+    pattern = os.path.join(DATA_DIR, f"{SUGGESTIONS_PREFIX}_*.json")
+    files = sorted(glob.glob(pattern))
+    if not files:
+        return None
+    with open(files[-1], encoding="utf-8") as fh:
+        return json.load(fh)
+
+
+def evaluate_previous_suggestions(
+    prev: dict,
+    draws: list[dict],
+) -> dict:
+    """
+    Score previous suggestions against draws that occurred after they were generated.
+
+    Returns a summary dict with hit counts across top5/top50/top500.
+    """
+    generated_at = prev.get("generated_at", "")
+    generated_date = generated_at[:10] if generated_at else ""
+
+    # Only draws after the suggestions were generated count as "new"
+    new_draws = [d for d in draws if d["draw_date"] > generated_date]
+    if not new_draws:
+        return {"draws_since": 0, "note": "No draws occurred after suggestions were generated."}
+
+    actual_numbers = {d["number"] for d in new_draws}
+
+    def hit_count(tier: list) -> int:
+        return sum(1 for s in tier if (s["number"] if isinstance(s, dict) else s) in actual_numbers)
+
+    suggestions = prev.get("suggestions", {})
+    top5 = suggestions.get("top5", [])
+    top50 = suggestions.get("top50", [])
+    top500 = suggestions.get("top500", [])
+
+    hits_top5 = hit_count(top5)
+    hits_top50 = hit_count(top50)
+    hits_top500 = hit_count(top500)
+
+    result = {
+        "generated_at": generated_at,
+        "draws_since": len(new_draws),
+        "hits_top5": hits_top5,
+        "hits_top50": hits_top50,
+        "hits_top500": hits_top500,
+        "top5_numbers": [s["number"] if isinstance(s, dict) else s for s in top5],
+        "hit_numbers": sorted(
+            actual_numbers & {s["number"] if isinstance(s, dict) else s for s in top50}
+        ),
+    }
+    return result
+
+
 def get_llm_config() -> dict | None:
     """Resolve which hosted LLM provider to use based on available credentials."""
     provider = os.environ.get("LLM_PROVIDER", "auto").strip().lower()
@@ -252,6 +311,7 @@ def _build_llm_prompt(
     weights: list[list[float]],
     num_freq: Counter,
     candidates: list[tuple[str, float]],
+    prev_performance: dict | None = None,
 ) -> str:
     recent = draws[:50]  # Last 50 draws for the prompt
     draw_lines = "\n".join(
@@ -272,6 +332,18 @@ def _build_llm_prompt(
 
     candidate_lines = _format_candidate_lines(candidates)
 
+    prev_section = ""
+    if prev_performance and prev_performance.get("draws_since", 0) > 0:
+        hits = prev_performance.get("hit_numbers", [])
+        hit_str = ", ".join(hits) if hits else "none"
+        prev_section = f"""
+Previous suggestions performance (generated {prev_performance['generated_at'][:10]}):
+  Draws since then: {prev_performance['draws_since']}
+  Previous top5: {prev_performance.get('top5_numbers', [])}
+  Hits in top50 vs actual draws: {prev_performance['hits_top50']} ({hit_str})
+  NOTE: Numbers that matched actual draws are listed above. Use this to refine your digit pattern intuition.
+"""
+
     return f"""You are a lottery analysis assistant.
 Analyze Jokker historical results and choose suggested values from a precomputed candidate shortlist.
 Jokker is a 7-digit number game where each digit is 0-9.
@@ -284,7 +356,7 @@ Per-position frequency summary:
 
 Most repeated historical numbers:
 {repeated_lines}
-
+{prev_section}
 Candidate shortlist:
 {candidate_lines}
 
@@ -390,9 +462,10 @@ def generate_llm_suggestions(
     num_freq: Counter,
     candidates: list[tuple[str, float]],
     llm_config: dict,
+    prev_performance: dict | None = None,
 ) -> dict:
     """Use OpenAI to rank candidate suggestions and provide a short analysis summary."""
-    prompt = _build_llm_prompt(draws, weights, num_freq, candidates)
+    prompt = _build_llm_prompt(draws, weights, num_freq, candidates, prev_performance)
 
     if llm_config["provider"] == "github-models":
         print("Requesting AI suggestions from GitHub Models…")
@@ -467,19 +540,35 @@ def main() -> None:
     weights = position_weights(counters, draws)
     num_freq = overall_number_frequency(draws)
 
+    # Load and evaluate previous suggestions against draws that came in since
+    prev_suggestions = load_previous_suggestions()
+    prev_performance = evaluate_previous_suggestions(prev_suggestions, draws) if prev_suggestions else None
+    if prev_performance:
+        if prev_performance.get("draws_since", 0) > 0:
+            print(
+                f"Previous suggestions: {prev_performance['hits_top50']} hit(s) in top50 "
+                f"across {prev_performance['draws_since']} new draw(s) since {prev_performance['generated_at'][:10]}"
+            )
+        else:
+            print("Previous suggestions: no new draws since last run.")
+
     # Generate candidate pool (purely statistical)
     print("Generating candidate pool…")
     candidates = generate_candidate_pool(weights, num_freq, pool_size=5000)
 
     suggestions = build_suggestions(candidates)
     analysis = build_analysis_report(draws, counters, weights, num_freq)
+    if prev_performance:
+        analysis["prev_suggestions_performance"] = prev_performance
 
     # Optionally let the LLM rank the best statistical candidates.
     llm_config = get_llm_config()
     if llm_config:
         try:
             llm_candidates = candidates[:DEFAULT_LLM_CANDIDATE_COUNT]
-            llm_result = generate_llm_suggestions(draws, weights, num_freq, llm_candidates, llm_config)
+            llm_result = generate_llm_suggestions(
+                draws, weights, num_freq, llm_candidates, llm_config, prev_performance
+            )
             ranked_numbers = llm_result["top50"]
             suggestions = merge_ranked_suggestions(ranked_numbers, candidates)
             suggestions["top5"] = _stamp(llm_result["top5"])
