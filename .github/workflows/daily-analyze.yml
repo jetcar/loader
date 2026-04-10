@@ -33,6 +33,9 @@ jobs:
           echo "new_draws=$(( after - before ))" >> $GITHUB_OUTPUT
           echo "Draws before: $before, after: $after"
 
+      - name: Evaluate pending suggestions
+        run: python tools/evaluate_draw.py
+
       - name: Run analyzer
         if: steps.scraper.outputs.new_draws > 0
         env:

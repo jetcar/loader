@@ -1,0 +1,3087 @@
+{
+  "generated_at": "2026-04-10T11:24:44.571629+00:00",
+  "game": "Jokker",
+  "source": "https://www.eestiloto.ee/et/results/?game=JOKKER",
+  "target_draw_label": "1195",
+  "suggestions": {
+    "top5": [
+      {
+        "number": "4604909",
+        "generated_at": "2026-04-10T11:24:44.257814+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4604479",
+        "generated_at": "2026-04-10T11:24:44.257814+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4354613",
+        "generated_at": "2026-04-10T11:24:44.257814+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4234916",
+        "generated_at": "2026-04-10T11:24:44.257814+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4294014",
+        "generated_at": "2026-04-10T11:24:44.257814+00:00",
+        "target_draw_label": "1195"
+      }
+    ],
+    "top50": [
+      {
+        "number": "4604909",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4604479",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4354613",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4234916",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4294014",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4511913",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4664418",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2264214",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3734819",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7664473",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2794203",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "5594919",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3691973",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4664220",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6604214",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3694972",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8164413",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7654204",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4531009",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4594076",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6314973",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4534739",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4764093",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4714616",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2684619",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8652919",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4361273",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7699213",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4591274",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7195913",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8694605",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4514623",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4544817",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3694962",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4714693",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6794904",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6254213",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8814419",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6361213",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "1204913",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8164906",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4111903",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4711279",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3634605",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2244939",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6664812",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2694266",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7651019",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2604639",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4215213",
+        "generated_at": "2026-04-10T11:24:44.257702+00:00",
+        "target_draw_label": "1195"
+      }
+    ],
+    "top500": [
+      {
+        "number": "4604909",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4604479",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4354613",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4234916",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4294014",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4511913",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4664418",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2264214",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3734819",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7664473",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2794203",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "5594919",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3691973",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4664220",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6604214",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3694972",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8164413",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7654204",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4531009",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4594076",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6314973",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4534739",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4764093",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4714616",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2684619",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8652919",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4361273",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7699213",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4591274",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7195913",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8694605",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4514623",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4544817",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3694962",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4714693",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6794904",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6254213",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8814419",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6361213",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "1204913",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8164906",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4111903",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4711279",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3634605",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2244939",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6664812",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2694266",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7651019",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2604639",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4215213",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3894910",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4144417",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4394808",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4665902",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6634059",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7632613",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3314003",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3091219",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3844909",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "1534429",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "1604274",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7334823",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8690119",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2034403",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "1661203",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3364997",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4514116",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3794474",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7639613",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7796913",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4506209",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4744829",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4169214",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2294469",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7334607",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7639969",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3796619",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4154694",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7594287",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7014203",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "0699013",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7344713",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7640914",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "0599913",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3734063",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3638217",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8714669",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4566669",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7664789",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "0664677",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4135479",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8364464",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4132974",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6394810",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4214011",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4761983",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4334835",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8704263",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4114472",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "0661963",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8361959",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4554097",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3612214",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4194020",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8396973",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7790209",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4709909",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7614070",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7192419",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3295619",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "0664952",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8414939",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4404699",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3364998",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4094464",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3214205",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4154262",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "1854999",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "1604908",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "0660299",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4166963",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3195413",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3314260",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4566983",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6565209",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4235713",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4332953",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4569879",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3141903",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4732994",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4234134",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4340218",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8394695",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "0714699",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "0394833",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "0360619",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7104612",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8094663",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "0354977",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8630109",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2164800",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7698963",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "0595203",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2601809",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6564295",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6639609",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2691624",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4644656",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4664644",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "1693999",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8234228",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2691874",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7694836",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4832204",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4799233",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8392009",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7618819",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3154264",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4202419",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4610937",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "0334955",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2404299",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4495609",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4605433",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4515069",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "1164234",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "0364236",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6666904",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7565263",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2361233",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2648214",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4359239",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3136613",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8559999",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4300216",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7866219",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4611864",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4265259",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7610918",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4094627",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "1564287",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3344960",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4695250",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "1564292",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "0595929",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4662670",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4595226",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3236910",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2314987",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4484904",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4514197",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4299699",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7791414",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3384223",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7346419",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4710207",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7814953",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3310999",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6644634",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "1765979",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7244109",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3595003",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8644054",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4568294",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6294199",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4742269",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4558614",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "1794024",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8734250",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8361970",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2651276",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4639672",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3744224",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4764504",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7104817",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8609413",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6344114",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4751615",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6134238",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8030214",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3138419",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8354115",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4161962",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "1314623",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8364884",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3794667",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3491999",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "0194802",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "0661439",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7694431",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8831609",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "0165419",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3894816",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4540639",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7365216",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7666970",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4520619",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "0693013",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8566216",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "0294260",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8664165",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "0344423",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8356269",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3884209",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2561954",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "0461213",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4260693",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2215419",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4464257",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4593803",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6655916",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "0655916",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7794692",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3663904",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4616254",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8304513",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4038912",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8318214",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "0994609",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4358212",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4610675",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8154769",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3601906",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3195212",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3641693",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4434221",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4166205",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "0014414",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "1554659",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7339215",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4024204",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3544980",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7131639",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6616217",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3511604",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4114176",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4366996",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "0174913",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8514514",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4896263",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6644690",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4706409",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6224979",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6638069",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8674814",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4763963",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7638039",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3510912",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4195292",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4708273",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "0064029",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4865109",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4511070",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4712983",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7668983",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3794256",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6834275",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2553213",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "0534432",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "1584989",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3134884",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8105819",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8752419",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8646814",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "0166214",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6654159",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4634568",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8333204",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4560513",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3635169",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6144874",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "0854216",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8748909",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8594512",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2896903",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2094793",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3234001",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3594705",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4930013",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4855609",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4515779",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4162415",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4816273",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3741269",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8295283",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3690600",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7414934",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8364835",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "1166903",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2784814",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4684087",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8731074",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4244249",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3795113",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4361808",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2530093",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2624117",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4338418",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "1164235",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6561294",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2692889",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2384623",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3751614",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2324879",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4704830",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "1664825",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "0368999",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4680997",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "1744714",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4837939",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "1644801",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2739204",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6861273",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3093913",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8732814",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "1590959",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8168918",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8695676",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "1444916",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4366677",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6234470",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "0530604",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "1194878",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7590976",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4383209",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8602612",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4934287",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8134517",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4774403",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4433973",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4616697",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4930910",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6362217",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4760295",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3533809",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2624519",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3665935",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "1462219",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8324259",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3108213",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "0134801",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8567819",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4133016",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6044814",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2812213",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7698920",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6642210",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "5135219",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2554665",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4444067",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2668093",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6601069",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8231415",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "1114611",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2140969",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6404963",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4439207",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "0692295",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7144235",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6334032",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4630661",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4111227",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2314981",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4702205",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2964617",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2610074",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7194031",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2241679",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7254634",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8374879",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7292216",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "1095939",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7034008",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4955979",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3519916",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6298419",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6191207",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8198216",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4600222",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6366963",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8264454",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6669429",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4190654",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4532667",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "0239239",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6244829",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4446013",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "0546999",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4650632",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "1334622",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4010039",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2591988",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8600972",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8290803",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3615709",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "1610908",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3494799",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4005989",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6314189",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4570619",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7754054",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8296205",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4653689",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4014427",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6335415",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7332519",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4501112",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "1514698",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6642212",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2619713",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4568769",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7551873",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2590937",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8102210",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3354774",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4232664",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "1814906",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4761514",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4626639",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2635931",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7603299",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3507979",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4095968",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8384519",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2552212",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7331005",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8031493",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4602075",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2714435",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6199217",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3891113",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6164599",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4533034",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "0253919",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3340918",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8592103",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3344060",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3311114",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4526917",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8535260",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8898613",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2844967",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4044635",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7094601",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7164022",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2396094",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "2631626",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8154712",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8831069",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8750215",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "7134243",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "8534303",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4295717",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "9634935",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6794105",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4353907",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "4299201",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6644124",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "6510204",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      },
+      {
+        "number": "3333989",
+        "generated_at": "2026-04-10T11:24:44.257713+00:00",
+        "target_draw_label": "1195"
+      }
+    ]
+  },
+  "cost_analysis": {
+    "cost_per_line": 2.0,
+    "prize_table": {
+      "7": 1000000.0,
+      "6": 30000.0,
+      "5": 1000.0,
+      "4": 50.0,
+      "3": 6.0,
+      "2": 2.0
+    },
+    "note": "Backtest plays each suggestion against every historical draw.",
+    "top5": {
+      "lines": 5,
+      "draws_backtested": 1193,
+      "cost_per_draw": 10.0,
+      "total_cost": 11930.0,
+      "total_winnings": 1000190.0,
+      "net": 988260.0,
+      "roi_pct": 8383.82,
+      "win_breakdown": {
+        "0": 5326,
+        "1": 569,
+        "2": 56,
+        "3": 13,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 1
+      }
+    },
+    "top50": {
+      "lines": 50,
+      "draws_backtested": 1193,
+      "cost_per_draw": 100.0,
+      "total_cost": 119300.0,
+      "total_winnings": 15002968.0,
+      "net": 14883668.0,
+      "roi_pct": 12575.83,
+      "win_breakdown": {
+        "0": 53311,
+        "1": 5587,
+        "2": 667,
+        "3": 64,
+        "4": 5,
+        "5": 1,
+        "6": 0,
+        "7": 15
+      }
+    },
+    "top500": {
+      "lines": 500,
+      "draws_backtested": 1193,
+      "cost_per_draw": 1000.0,
+      "total_cost": 1193000.0,
+      "total_winnings": 118026718.0,
+      "net": 116833718.0,
+      "roi_pct": 9893.27,
+      "win_breakdown": {
+        "0": 534124,
+        "1": 55667,
+        "2": 5822,
+        "3": 704,
+        "4": 57,
+        "5": 8,
+        "6": 0,
+        "7": 118
+      }
+    }
+  },
+  "analysis": {
+    "total_draws_analyzed": 1193,
+    "date_range": {
+      "earliest": "2023-01-03",
+      "latest": "2026-04-09"
+    },
+    "per_position_analysis": {
+      "position_1": {
+        "most_common": [
+          4,
+          8,
+          2
+        ],
+        "least_common": [
+          1,
+          5,
+          9
+        ],
+        "frequencies": {
+          "0": 119,
+          "1": 118,
+          "2": 125,
+          "3": 124,
+          "4": 138,
+          "5": 102,
+          "6": 119,
+          "7": 124,
+          "8": 126,
+          "9": 98
+        }
+      },
+      "position_2": {
+        "most_common": [
+          6,
+          5,
+          3
+        ],
+        "least_common": [
+          8,
+          4,
+          9
+        ],
+        "frequencies": {
+          "0": 114,
+          "1": 122,
+          "2": 120,
+          "3": 126,
+          "4": 111,
+          "5": 127,
+          "6": 135,
+          "7": 122,
+          "8": 113,
+          "9": 103
+        }
+      },
+      "position_3": {
+        "most_common": [
+          3,
+          9,
+          6
+        ],
+        "least_common": [
+          8,
+          2,
+          7
+        ],
+        "frequencies": {
+          "0": 120,
+          "1": 124,
+          "2": 105,
+          "3": 132,
+          "4": 121,
+          "5": 122,
+          "6": 129,
+          "7": 99,
+          "8": 109,
+          "9": 132
+        }
+      },
+      "position_4": {
+        "most_common": [
+          4,
+          1,
+          5
+        ],
+        "least_common": [
+          8,
+          3,
+          7
+        ],
+        "frequencies": {
+          "0": 120,
+          "1": 126,
+          "2": 118,
+          "3": 109,
+          "4": 145,
+          "5": 121,
+          "6": 118,
+          "7": 106,
+          "8": 114,
+          "9": 116
+        }
+      },
+      "position_5": {
+        "most_common": [
+          9,
+          2,
+          6
+        ],
+        "least_common": [
+          7,
+          5,
+          3
+        ],
+        "frequencies": {
+          "0": 125,
+          "1": 116,
+          "2": 134,
+          "3": 94,
+          "4": 123,
+          "5": 104,
+          "6": 126,
+          "7": 112,
+          "8": 122,
+          "9": 137
+        }
+      },
+      "position_6": {
+        "most_common": [
+          1,
+          0,
+          7
+        ],
+        "least_common": [
+          8,
+          5,
+          4
+        ],
+        "frequencies": {
+          "0": 128,
+          "1": 137,
+          "2": 118,
+          "3": 119,
+          "4": 95,
+          "5": 113,
+          "6": 120,
+          "7": 126,
+          "8": 115,
+          "9": 122
+        }
+      },
+      "position_7": {
+        "most_common": [
+          9,
+          3,
+          4
+        ],
+        "least_common": [
+          6,
+          8,
+          1
+        ],
+        "frequencies": {
+          "0": 117,
+          "1": 110,
+          "2": 115,
+          "3": 130,
+          "4": 124,
+          "5": 116,
+          "6": 115,
+          "7": 118,
+          "8": 113,
+          "9": 135
+        }
+      }
+    },
+    "most_drawn_numbers": [
+      {
+        "number": "0706604",
+        "count": 1
+      },
+      {
+        "number": "2464441",
+        "count": 1
+      },
+      {
+        "number": "5072956",
+        "count": 1
+      },
+      {
+        "number": "6899845",
+        "count": 1
+      },
+      {
+        "number": "7814953",
+        "count": 1
+      },
+      {
+        "number": "1844661",
+        "count": 1
+      },
+      {
+        "number": "2123295",
+        "count": 1
+      },
+      {
+        "number": "3326147",
+        "count": 1
+      },
+      {
+        "number": "6058108",
+        "count": 1
+      },
+      {
+        "number": "0618020",
+        "count": 1
+      }
+    ],
+    "prev_suggestions_performance": {
+      "draws_since": 0,
+      "note": "No draws occurred after suggestions were generated."
+    },
+    "ai_top5_used": true,
+    "llm_used": true,
+    "llm_provider": "github-models",
+    "llm_model": "openai/gpt-4.1-mini",
+    "llm_summary": "Top candidates are selected based on the highest scores from the shortlist, ensuring no duplicates and aligning with the most frequent digits per position. The top5 are the strongest scoring numbers, all within the top50, reflecting digit frequency trends and recent draw patterns.",
+    "llm_candidate_count": 120
+  }
+}

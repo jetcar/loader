@@ -49,6 +49,19 @@ DEFAULT_LLM_CANDIDATE_COUNT = 120
 GITHUB_MODELS_API_URL = "https://models.github.ai/inference/chat/completions"
 GITHUB_API_VERSION = "2026-03-10"
 
+# Prize table: N consecutive matching digits from the right → prize in euros
+PRIZE_TABLE: dict[int, float] = {
+    7: 1_000_000.00,
+    6: 30_000.00,
+    5: 1_000.00,
+    4: 50.00,
+    3: 6.00,
+    2: 2.00,
+    1: 0.00,
+    0: 0.00,
+}
+COST_PER_LINE: float = 2.00
+
 
 # ---------------------------------------------------------------------------
 # Statistical helpers
@@ -161,28 +174,37 @@ def generate_candidate_pool(
     return candidates
 
 
-def _stamp(numbers: list[str]) -> list[dict]:
-    """Wrap each number with its own generated_at timestamp."""
+def _stamp(numbers: list[str], target_draw_label: str | None = None) -> list[dict]:
+    """Wrap each number with its own generated_at timestamp and target draw label."""
     ts = datetime.now(timezone.utc).isoformat()
-    return [{"number": n, "generated_at": ts} for n in numbers]
+    entry = {"number": "#", "generated_at": ts}
+    if target_draw_label is not None:
+        entry["target_draw_label"] = target_draw_label
+    return [{**entry, "number": n} for n in numbers]
 
 
 def build_suggestions(
     candidates: list[tuple[str, float]],
     counts: tuple[int, int, int] = (5, 50, 500),
+    target_draw_label: str | None = None,
 ) -> dict:
     """Slice the sorted candidate pool into the three suggestion tiers."""
     n5, n50, n500 = counts
     top500 = [c[0] for c in candidates[:n500]]
     top50 = top500[:n50]
     top5 = top50[:n5]
-    return {"top5": _stamp(top5), "top50": _stamp(top50), "top500": _stamp(top500)}
+    return {
+        "top5": _stamp(top5, target_draw_label),
+        "top50": _stamp(top50, target_draw_label),
+        "top500": _stamp(top500, target_draw_label),
+    }
 
 
 def merge_ranked_suggestions(
     ranked_numbers: list[str],
     candidates: list[tuple[str, float]],
     counts: tuple[int, int, int] = (5, 50, 500),
+    target_draw_label: str | None = None,
 ) -> dict:
     """Merge LLM-ranked numbers with the statistical pool without duplicates."""
     n5, n50, n500 = counts
@@ -204,7 +226,11 @@ def merge_ranked_suggestions(
     top500 = ordered[:n500]
     top50 = top500[:n50]
     top5 = top50[:n5]
-    return {"top5": _stamp(top5), "top50": _stamp(top50), "top500": _stamp(top500)}
+    return {
+        "top5": _stamp(top5, target_draw_label),
+        "top50": _stamp(top50, target_draw_label),
+        "top500": _stamp(top500, target_draw_label),
+    }
 
 
 def load_previous_suggestions() -> dict | None:
@@ -497,6 +523,72 @@ def generate_llm_suggestions(
 # Analysis summary helpers
 # ---------------------------------------------------------------------------
 
+def count_jokker_matches(suggestion: str, draw_number: str) -> int:
+    """
+    Count how many consecutive digits match from the right.
+
+    Jokker prizes are awarded for matching the last N digits of the draw number
+    in exact positions from right to left.
+    """
+    matches = 0
+    for s, d in zip(reversed(suggestion), reversed(draw_number)):
+        if s == d:
+            matches += 1
+        else:
+            break
+    return matches
+
+
+def calculate_roi(suggestions: dict, draws: list[dict]) -> dict:
+    """
+    Backtest suggestion tiers against all historical draws.
+
+    For each draw, checks every suggestion in top5/top50/top500 for consecutive
+    right-digit matches and sums the resulting prizes.
+
+    Returns a cost_analysis dict with total cost, winnings, and net per tier.
+    """
+    draw_numbers = [d["number"] for d in draws if len(d.get("number", "")) == 7]
+    num_draws = len(draw_numbers)
+
+    def _tier_stats(tier: list) -> dict:
+        numbers = [s["number"] if isinstance(s, dict) else s for s in tier]
+        lines = len(numbers)
+        total_cost = round(lines * COST_PER_LINE * num_draws, 2)
+        total_winnings = 0.0
+        breakdown: dict[str, int] = {str(k): 0 for k in range(8)}
+
+        for draw_num in draw_numbers:
+            for number in numbers:
+                m = count_jokker_matches(number, draw_num)
+                breakdown[str(m)] += 1
+                total_winnings += PRIZE_TABLE.get(m, 0.0)
+
+        total_winnings = round(total_winnings, 2)
+        net = round(total_winnings - total_cost, 2)
+        roi_pct = round((total_winnings / total_cost * 100) if total_cost > 0 else 0.0, 2)
+
+        return {
+            "lines": lines,
+            "draws_backtested": num_draws,
+            "cost_per_draw": round(lines * COST_PER_LINE, 2),
+            "total_cost": total_cost,
+            "total_winnings": total_winnings,
+            "net": net,
+            "roi_pct": roi_pct,
+            "win_breakdown": breakdown,
+        }
+
+    return {
+        "cost_per_line": COST_PER_LINE,
+        "prize_table": {str(k): v for k, v in PRIZE_TABLE.items() if v > 0},
+        "note": "Backtest plays each suggestion against every historical draw.",
+        "top5": _tier_stats(suggestions.get("top5", [])),
+        "top50": _tier_stats(suggestions.get("top50", [])),
+        "top500": _tier_stats(suggestions.get("top500", [])),
+    }
+
+
 def build_analysis_report(
     draws: list[dict],
     counters: list[Counter],
@@ -552,11 +644,20 @@ def main() -> None:
         else:
             print("Previous suggestions: no new draws since last run.")
 
+    # Determine the next draw label (sequential integer after the latest known draw)
+    latest_label = draws[0].get("draw_label", "") if draws else ""
+    try:
+        target_draw_label = str(int(latest_label) + 1)
+    except (ValueError, TypeError):
+        target_draw_label = None
+    if target_draw_label:
+        print(f"Target draw label: {target_draw_label}")
+
     # Generate candidate pool (purely statistical)
     print("Generating candidate pool…")
     candidates = generate_candidate_pool(weights, num_freq, pool_size=5000)
 
-    suggestions = build_suggestions(candidates)
+    suggestions = build_suggestions(candidates, target_draw_label=target_draw_label)
     analysis = build_analysis_report(draws, counters, weights, num_freq)
     if prev_performance:
         analysis["prev_suggestions_performance"] = prev_performance
@@ -570,8 +671,10 @@ def main() -> None:
                 draws, weights, num_freq, llm_candidates, llm_config, prev_performance
             )
             ranked_numbers = llm_result["top50"]
-            suggestions = merge_ranked_suggestions(ranked_numbers, candidates)
-            suggestions["top5"] = _stamp(llm_result["top5"])
+            suggestions = merge_ranked_suggestions(
+                ranked_numbers, candidates, target_draw_label=target_draw_label
+            )
+            suggestions["top5"] = _stamp(llm_result["top5"], target_draw_label)
             analysis["ai_top5_used"] = True
             analysis["llm_used"] = True
             analysis["llm_provider"] = llm_config["provider"]
@@ -592,11 +695,16 @@ def main() -> None:
             "Using statistical suggestions only."
         )
 
+    print("Calculating historical ROI…")
+    roi = calculate_roi(suggestions, draws)
+
     output = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "game": "Jokker",
         "source": "https://www.eestiloto.ee/et/results/?game=JOKKER",
+        "target_draw_label": target_draw_label,
         "suggestions": suggestions,
+        "cost_analysis": roi,
         "analysis": analysis,
     }
 
@@ -609,6 +717,8 @@ def main() -> None:
     print(f"  top5:   {[s['number'] for s in suggestions['top5']]}")
     print(f"  top50:  {len(suggestions['top50'])} numbers")
     print(f"  top500: {len(suggestions['top500'])} numbers")
+    t5 = roi["top5"]
+    print(f"  top5 ROI: cost={t5['total_cost']}€  winnings={t5['total_winnings']}€  net={t5['net']}€  ({t5['roi_pct']}%)")
 
 
 if __name__ == "__main__":
