@@ -6,6 +6,7 @@ Jokker is a 7-digit number game where each digit is 0-9.
 """
 
 import json
+import math
 import os
 import re
 import sys
@@ -18,6 +19,8 @@ from bs4 import BeautifulSoup
 RESULTS_URL = "https://www.eestiloto.ee/et/results/"
 JOKKER_GAME_PARAM = "?game=JOKKER"
 PAGE_PARAM = "&page={page}"
+AJAX_RESULTS_URL = "https://www.eestiloto.ee/app/ajaxDrawStatistic"
+PAGE_SIZE = 10
 
 HEADERS = {
     "User-Agent": (
@@ -34,6 +37,13 @@ DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")
 OUTPUT_FILE = os.path.join(DATA_DIR, "jokker_results.json")
 
 
+def create_session() -> requests.Session:
+    """Create a requests session with the headers expected by eestiloto.ee."""
+    session = requests.Session()
+    session.headers.update(HEADERS)
+    return session
+
+
 def fetch_page(url: str, retries: int = 3, delay: float = 2.0) -> str:
     """Fetch a URL with retries and return the HTML content."""
     for attempt in range(1, retries + 1):
@@ -46,6 +56,101 @@ def fetch_page(url: str, retries: int = 3, delay: float = 2.0) -> str:
             if attempt < retries:
                 time.sleep(delay)
     raise RuntimeError(f"Failed to fetch {url} after {retries} attempts")
+
+
+def fetch_csrf_token(session: requests.Session, retries: int = 3, delay: float = 2.0) -> str:
+    """Fetch the Jokker results page and extract the CSRF token required by the AJAX API."""
+    page_url = RESULTS_URL + JOKKER_GAME_PARAM
+    for attempt in range(1, retries + 1):
+        try:
+            response = session.get(page_url, timeout=30)
+            response.raise_for_status()
+            match = re.search(r'name="csrfToken" value="([^"]+)"', response.text)
+            if not match:
+                raise RuntimeError("CSRF token not found in results page")
+            return match.group(1)
+        except (requests.RequestException, RuntimeError) as exc:
+            print(f"  Attempt {attempt}/{retries} failed to fetch CSRF token: {exc}", file=sys.stderr)
+            if attempt < retries:
+                time.sleep(delay)
+
+    raise RuntimeError(f"Failed to fetch CSRF token after {retries} attempts")
+
+
+def fetch_draws_page(
+    session: requests.Session,
+    csrf_token: str,
+    page_index: int,
+    retries: int = 3,
+    delay: float = 2.0,
+) -> dict:
+    """Fetch a single page of Jokker draw statistics from the AJAX endpoint."""
+    payload = {
+        "gameTypes": "JOKKER",
+        "dateFrom": "",
+        "dateTo": "",
+        "drawLabelFrom": "",
+        "drawLabelTo": "",
+        "pageIndex": page_index,
+        "orderBy": "drawDate_desc",
+        "sortLabelNumeric": True,
+        "csrfToken": csrf_token,
+    }
+    headers = {
+        "Referer": RESULTS_URL + JOKKER_GAME_PARAM,
+        "X-Requested-With": "XMLHttpRequest",
+    }
+
+    for attempt in range(1, retries + 1):
+        try:
+            response = session.post(AJAX_RESULTS_URL, data=payload, headers=headers, timeout=30)
+            response.raise_for_status()
+            data = response.json()
+            status_code = data.get("statusCode")
+            if status_code != 200:
+                raise RuntimeError(f"Unexpected statusCode {status_code} for page {page_index}")
+            return data
+        except (requests.RequestException, ValueError, RuntimeError) as exc:
+            print(
+                f"  Attempt {attempt}/{retries} failed for API page {page_index}: {exc}",
+                file=sys.stderr,
+            )
+            if attempt < retries:
+                time.sleep(delay)
+
+    raise RuntimeError(f"Failed to fetch API page {page_index} after {retries} attempts")
+
+
+def parse_api_draws(items: list[dict]) -> list[dict]:
+    """Map ajaxDrawStatistic items to the local JSON schema used by the analyzer."""
+    draws: list[dict] = []
+
+    for item in items:
+        results = item.get("results") or []
+        winning_number = ""
+        if results and isinstance(results[0], dict):
+            winning_number = str(results[0].get("winningNumber") or "")
+
+        digits = _extract_digits(winning_number)
+        if not digits:
+            continue
+
+        draw_date = item.get("drawDate")
+        if isinstance(draw_date, (int, float)):
+            iso_date = datetime.fromtimestamp(draw_date / 1000, tz=timezone.utc).strftime("%Y-%m-%d")
+        else:
+            iso_date = _parse_date(str(draw_date or ""))
+
+        draws.append(
+            {
+                "draw_date": iso_date,
+                "draw_label": str(item.get("drawLabel") or ""),
+                "digits": digits,
+                "number": "".join(str(digit) for digit in digits),
+            }
+        )
+
+    return draws
 
 
 def parse_draws(html: str) -> list[dict]:
@@ -195,29 +300,48 @@ def _make_draw(date_str: str, digits: list[int]) -> dict:
     }
 
 
-def fetch_all_results(max_pages: int = 10) -> list[dict]:
+def load_existing_draws(path: str = OUTPUT_FILE) -> list[dict]:
+    """Load previously saved draws from disk. Returns empty list if file absent."""
+    if not os.path.exists(path):
+        return []
+    with open(path, encoding="utf-8") as fh:
+        data = json.load(fh)
+    return data.get("draws") or []
+
+
+def fetch_all_results(
+    max_pages: int | None = None,
+    stop_after_keys: set[str] | None = None,
+) -> list[dict]:
     """
-    Fetch Jokker results across multiple pages and deduplicate.
+    Fetch Jokker results across available API pages and deduplicate.
+
+    When *stop_after_keys* is provided (incremental mode), fetching stops as
+    soon as a page contains only draws already in that set.
 
     Returns a list of draw dicts sorted by date descending.
     """
+    session = create_session()
+    csrf_token = fetch_csrf_token(session)
     all_draws: list[dict] = []
     seen_keys: set[str] = set()
+    page = 1
+    total_pages: int | None = None
 
-    for page in range(1, max_pages + 1):
-        if page == 1:
-            url = RESULTS_URL + JOKKER_GAME_PARAM
-        else:
-            url = RESULTS_URL + JOKKER_GAME_PARAM + PAGE_PARAM.format(page=page)
-
-        print(f"Fetching page {page}: {url}")
+    while max_pages is None or page <= max_pages:
+        print(f"Fetching API page {page}: {AJAX_RESULTS_URL}")
         try:
-            html = fetch_page(url)
+            response_data = fetch_draws_page(session, csrf_token, page)
         except RuntimeError as exc:
             print(f"  Stopping at page {page}: {exc}", file=sys.stderr)
             break
 
-        page_draws = parse_draws(html)
+        if total_pages is None:
+            draw_count = int(response_data.get("drawCount") or 0)
+            total_pages = max(1, math.ceil(draw_count / PAGE_SIZE)) if draw_count else 1
+            print(f"  API reports {draw_count} total draws across {total_pages} pages")
+
+        page_draws = parse_api_draws(response_data.get("draws") or [])
         if not page_draws:
             print(f"  No draws found on page {page}, stopping.")
             break
@@ -230,8 +354,21 @@ def fetch_all_results(max_pages: int = 10) -> list[dict]:
                 all_draws.append(draw)
                 new_draws += 1
 
-        print(f"  Found {new_draws} new draws (total: {len(all_draws)})")
+        print(f"  Found {new_draws} new draws on page {page} (total: {len(all_draws)})")
+
+        # In incremental mode stop once every draw on this page is already known
+        if stop_after_keys is not None:
+            page_keys = {f"{d['draw_date']}_{d['number']}" for d in page_draws}
+            if page_keys.issubset(stop_after_keys):
+                print("  All draws on this page already known — stopping early.")
+                break
+
         time.sleep(1)  # Be polite
+
+        if total_pages is not None and page >= total_pages:
+            break
+
+        page += 1
 
     # Sort by date descending
     all_draws.sort(key=lambda d: d["draw_date"], reverse=True)
@@ -251,8 +388,45 @@ def save_results(draws: list[dict], path: str = OUTPUT_FILE) -> None:
 
 
 def main() -> None:
-    max_pages = int(os.environ.get("SCRAPER_MAX_PAGES", "10"))
-    draws = fetch_all_results(max_pages=max_pages)
+    import argparse
+
+    parser = argparse.ArgumentParser(description="Jokker results scraper")
+    parser.add_argument(
+        "--incremental",
+        action="store_true",
+        help=(
+            "Fetch only draws newer than those already in jokker_results.json "
+            "and merge with the existing file. By default fetches everything."
+        ),
+    )
+    args = parser.parse_args()
+
+    max_pages_raw = os.environ.get("SCRAPER_MAX_PAGES", "").strip()
+    max_pages = int(max_pages_raw) if max_pages_raw else None
+
+    if args.incremental:
+        existing = load_existing_draws()
+        if existing:
+            stop_keys = {f"{d['draw_date']}_{d['number']}" for d in existing}
+            print(f"Incremental mode: {len(existing)} existing draws, fetching new ones only.")
+        else:
+            stop_keys = None
+            print("Incremental mode: no existing data found, fetching all draws.")
+
+        new_draws = fetch_all_results(max_pages=max_pages, stop_after_keys=stop_keys)
+
+        if existing:
+            existing_keys = {f"{d['draw_date']}_{d['number']}" for d in existing}
+            truly_new = [d for d in new_draws if f"{d['draw_date']}_{d['number']}" not in existing_keys]
+            print(f"Merging {len(truly_new)} new draw(s) with {len(existing)} existing draws.")
+            merged = truly_new + existing
+            merged.sort(key=lambda d: d["draw_date"], reverse=True)
+            draws = merged
+        else:
+            draws = new_draws
+    else:
+        draws = fetch_all_results(max_pages=max_pages)
+
     if not draws:
         print("WARNING: No draws fetched. Saving empty results.", file=sys.stderr)
     save_results(draws)

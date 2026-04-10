@@ -1,0 +1,45 @@
+name: Daily Jokker Analysis
+
+on:
+  schedule:
+    - cron: "0 6 * * *"   # 06:00 UTC every day
+  workflow_dispatch:        # allow manual trigger from GitHub UI
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write       # needed to push the commit back
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Fetch latest draws (incremental)
+        run: python scraper/scraper.py --incremental
+
+      - name: Run analyzer
+        env:
+          GH_MODELS_TOKEN: ${{ secrets.GH_MODELS_TOKEN }}
+        run: python analyzer/analyzer.py
+
+      - name: Commit results
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore: daily analysis $(date -u '+%Y-%m-%d')"
+            git push origin main
+          fi

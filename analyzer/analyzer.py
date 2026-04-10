@@ -19,6 +19,16 @@ import re
 import sys
 from collections import Counter
 from datetime import datetime, timezone
+from pathlib import Path
+
+import requests
+
+# Load .env file if present (created by tools/github_auth.py or manually)
+try:
+    from dotenv import load_dotenv  # type: ignore
+    load_dotenv(dotenv_path=Path(__file__).resolve().parents[1] / ".env")
+except ImportError:
+    pass  # python-dotenv not installed; rely on environment variables only
 
 # OpenAI is optional; statistical analysis works without it.
 try:
@@ -29,10 +39,15 @@ except ImportError:
 
 DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")
 RESULTS_FILE = os.path.join(DATA_DIR, "jokker_results.json")
-OUTPUT_FILE = os.path.join(DATA_DIR, "suggestions.json")
+SUGGESTIONS_PREFIX = "suggestions"
 
 DIGIT_POSITIONS = 7   # Jokker has 7 digits
 DIGIT_RANGE = 10      # Each digit is 0-9
+DEFAULT_OPENAI_MODEL = os.environ.get("OPENAI_MODEL", "gpt-4o-mini")
+DEFAULT_GITHUB_MODEL = os.environ.get("GITHUB_MODELS_MODEL", "openai/gpt-4.1-mini")
+DEFAULT_LLM_CANDIDATE_COUNT = 120
+GITHUB_MODELS_API_URL = "https://models.github.ai/inference/chat/completions"
+GITHUB_API_VERSION = "2026-03-10"
 
 
 # ---------------------------------------------------------------------------
@@ -146,6 +161,12 @@ def generate_candidate_pool(
     return candidates
 
 
+def _stamp(numbers: list[str]) -> list[dict]:
+    """Wrap each number with its own generated_at timestamp."""
+    ts = datetime.now(timezone.utc).isoformat()
+    return [{"number": n, "generated_at": ts} for n in numbers]
+
+
 def build_suggestions(
     candidates: list[tuple[str, float]],
     counts: tuple[int, int, int] = (5, 50, 500),
@@ -155,14 +176,83 @@ def build_suggestions(
     top500 = [c[0] for c in candidates[:n500]]
     top50 = top500[:n50]
     top5 = top50[:n5]
-    return {"top5": top5, "top50": top50, "top500": top500}
+    return {"top5": _stamp(top5), "top50": _stamp(top50), "top500": _stamp(top500)}
+
+
+def merge_ranked_suggestions(
+    ranked_numbers: list[str],
+    candidates: list[tuple[str, float]],
+    counts: tuple[int, int, int] = (5, 50, 500),
+) -> dict:
+    """Merge LLM-ranked numbers with the statistical pool without duplicates."""
+    n5, n50, n500 = counts
+    ordered: list[str] = []
+    seen: set[str] = set()
+
+    for number in ranked_numbers:
+        if len(number) == 7 and number.isdigit() and number not in seen:
+            ordered.append(number)
+            seen.add(number)
+
+    for number, _score in candidates:
+        if number not in seen:
+            ordered.append(number)
+            seen.add(number)
+        if len(ordered) >= n500:
+            break
+
+    top500 = ordered[:n500]
+    top50 = top500[:n50]
+    top5 = top50[:n5]
+    return {"top5": _stamp(top5), "top50": _stamp(top50), "top500": _stamp(top500)}
+
+
+def get_llm_config() -> dict | None:
+    """Resolve which hosted LLM provider to use based on available credentials."""
+    provider = os.environ.get("LLM_PROVIDER", "auto").strip().lower()
+    github_token = (
+        os.environ.get("GH_MODELS_TOKEN", "").strip()
+        or os.environ.get("GITHUB_MODELS_TOKEN", "").strip()
+        or os.environ.get("GITHUB_TOKEN", "").strip()
+        or os.environ.get("GH_TOKEN", "").strip()
+    )
+    openai_token = os.environ.get("OPENAI_API_KEY", "").strip()
+
+    if provider in {"auto", "github", "github-models"} and github_token:
+        return {
+            "provider": "github-models",
+            "token": github_token,
+            "model": os.environ.get("GITHUB_MODELS_MODEL", DEFAULT_GITHUB_MODEL),
+        }
+
+    if provider in {"auto", "openai"} and openai_token and _OPENAI_AVAILABLE:
+        return {
+            "provider": "openai",
+            "token": openai_token,
+            "model": os.environ.get("OPENAI_MODEL", DEFAULT_OPENAI_MODEL),
+        }
+
+    return None
 
 
 # ---------------------------------------------------------------------------
 # AI-powered analysis (optional, uses OpenAI)
 # ---------------------------------------------------------------------------
 
-def _build_ai_prompt(draws: list[dict], weights: list[list[float]]) -> str:
+def _format_candidate_lines(candidates: list[tuple[str, float]]) -> str:
+    """Render candidate numbers with compact scores for the LLM prompt."""
+    return "\n".join(
+        f"  {index + 1}. {number} (score={score:.12f})"
+        for index, (number, score) in enumerate(candidates)
+    )
+
+
+def _build_llm_prompt(
+    draws: list[dict],
+    weights: list[list[float]],
+    num_freq: Counter,
+    candidates: list[tuple[str, float]],
+) -> str:
     recent = draws[:50]  # Last 50 draws for the prompt
     draw_lines = "\n".join(
         f"  {d['draw_date']}: {' '.join(str(x) for x in d['digits'])}"
@@ -175,7 +265,15 @@ def _build_ai_prompt(draws: list[dict], weights: list[list[float]]) -> str:
         freq_lines.append(f"  Position {pos+1}: most frequent digits are {top3}")
     freq_summary = "\n".join(freq_lines)
 
-    return f"""You are a lottery analysis assistant. Analyze the following Jokker lottery draw history.
+    repeated_lines = "\n".join(
+        f"  {number}: seen {count} times"
+        for number, count in num_freq.most_common(15)
+    )
+
+    candidate_lines = _format_candidate_lines(candidates)
+
+    return f"""You are a lottery analysis assistant.
+Analyze Jokker historical results and choose suggested values from a precomputed candidate shortlist.
 Jokker is a 7-digit number game where each digit is 0-9.
 
 Recent draws (date: d1 d2 d3 d4 d5 d6 d7):
@@ -184,43 +282,142 @@ Recent draws (date: d1 d2 d3 d4 d5 d6 d7):
 Per-position frequency summary:
 {freq_summary}
 
-Based on this historical data, suggest exactly 5 highly plausible 7-digit Jokker numbers.
-Each suggestion should be a 7-character string of digits (e.g. "6058108").
-Return ONLY a JSON array of 5 strings, nothing else.
-Example: ["1234567","9876543","0011223","5544332","8877665"]
+Most repeated historical numbers:
+{repeated_lines}
+
+Candidate shortlist:
+{candidate_lines}
+
+Rules:
+1. Pick numbers only from the candidate shortlist.
+2. Avoid duplicates.
+3. Return exactly 5 numbers in top5 and exactly 50 numbers in top50.
+4. Keep top5 as the strongest subset of top50, in order.
+5. Provide a short reasoning summary grounded in the provided data only.
+
+Return ONLY JSON in this shape:
+{{
+  "top5": ["1234567", "2345678", "3456789", "4567890", "5678901"],
+  "top50": ["... exactly 50 candidate numbers ..."],
+  "summary": "short explanation"
+}}
 """
 
 
-def generate_ai_suggestions(
-    draws: list[dict],
-    weights: list[list[float]],
-    api_key: str,
-) -> list[str]:
-    """Use OpenAI to generate 5 top suggestions."""
-    client = OpenAI(api_key=api_key)
-    prompt = _build_ai_prompt(draws, weights)
-
-    print("Requesting AI suggestions from OpenAI…")
-    response = client.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=[{"role": "user", "content": prompt}],
-        temperature=0.7,
-        max_tokens=256,
-    )
-    content = response.choices[0].message.content.strip()
-
-    # Parse the JSON array
-    match = re.search(r"\[.*?\]", content, re.DOTALL)
+def _parse_llm_payload(content: str, candidates: list[tuple[str, float]]) -> dict:
+    """Parse and normalize JSON returned by an LLM ranking response."""
+    match = re.search(r"\{.*\}", content, re.DOTALL)
     if not match:
         raise ValueError(f"Unexpected AI response format: {content}")
-    suggestions = json.loads(match.group())
-    # Validate each suggestion
-    valid = []
-    for s in suggestions:
-        s = str(s).strip()
-        if len(s) == 7 and s.isdigit():
-            valid.append(s)
-    return valid[:5]
+    payload = json.loads(match.group())
+
+    allowed_numbers = {number for number, _score in candidates}
+
+    def clean_numbers(values: list) -> list[str]:
+        cleaned: list[str] = []
+        seen: set[str] = set()
+        for value in values:
+            number = str(value).strip()
+            if number in allowed_numbers and number not in seen:
+                cleaned.append(number)
+                seen.add(number)
+        return cleaned
+
+    top50 = clean_numbers(payload.get("top50", []))
+    top5 = clean_numbers(payload.get("top5", []))
+
+    if len(top50) < 50:
+        for number, _score in candidates:
+            if number not in top50:
+                top50.append(number)
+            if len(top50) >= 50:
+                break
+
+    top50 = top50[:50]
+
+    if len(top5) < 5:
+        for number in top50:
+            if number not in top5:
+                top5.append(number)
+            if len(top5) >= 5:
+                break
+
+    return {
+        "top5": top5[:5],
+        "top50": top50,
+        "summary": str(payload.get("summary", "")).strip(),
+    }
+
+
+def generate_github_models_suggestions(
+    prompt: str,
+    candidates: list[tuple[str, float]],
+    token: str,
+    model: str,
+) -> dict:
+    """Use GitHub Models REST inference to rank the statistical shortlist."""
+    headers = {
+        "Accept": "application/vnd.github+json",
+        "Authorization": f"Bearer {token}",
+        "Content-Type": "application/json",
+        "X-GitHub-Api-Version": GITHUB_API_VERSION,
+    }
+    body = {
+        "model": model,
+        "messages": [
+            {
+                "role": "system",
+                "content": "You are a careful ranking assistant that returns valid JSON only.",
+            },
+            {"role": "user", "content": prompt},
+        ],
+        "temperature": 0.4,
+        "max_tokens": 1200,
+        "stream": False,
+    }
+    response = requests.post(GITHUB_MODELS_API_URL, headers=headers, json=body, timeout=60)
+    response.raise_for_status()
+    payload = response.json()
+    content = payload["choices"][0]["message"]["content"].strip()
+    result = _parse_llm_payload(content, candidates)
+    result["model"] = model
+    return result
+
+
+def generate_llm_suggestions(
+    draws: list[dict],
+    weights: list[list[float]],
+    num_freq: Counter,
+    candidates: list[tuple[str, float]],
+    llm_config: dict,
+) -> dict:
+    """Use OpenAI to rank candidate suggestions and provide a short analysis summary."""
+    prompt = _build_llm_prompt(draws, weights, num_freq, candidates)
+
+    if llm_config["provider"] == "github-models":
+        print("Requesting AI suggestions from GitHub Models…")
+        return generate_github_models_suggestions(
+            prompt=prompt,
+            candidates=candidates,
+            token=llm_config["token"],
+            model=llm_config["model"],
+        )
+
+    if llm_config["provider"] == "openai":
+        client = OpenAI(api_key=llm_config["token"])
+        print("Requesting AI suggestions from OpenAI…")
+        response = client.chat.completions.create(
+            model=llm_config["model"],
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0.4,
+            max_tokens=1200,
+        )
+        content = response.choices[0].message.content.strip()
+        result = _parse_llm_payload(content, candidates)
+        result["model"] = llm_config["model"]
+        return result
+
+    raise ValueError(f"Unsupported LLM provider: {llm_config['provider']}")
 
 
 # ---------------------------------------------------------------------------
@@ -277,25 +474,34 @@ def main() -> None:
     suggestions = build_suggestions(candidates)
     analysis = build_analysis_report(draws, counters, weights, num_freq)
 
-    # Optionally replace top5 with AI suggestions
-    api_key = os.environ.get("OPENAI_API_KEY", "")
-    if api_key and _OPENAI_AVAILABLE:
+    # Optionally let the LLM rank the best statistical candidates.
+    llm_config = get_llm_config()
+    if llm_config:
         try:
-            ai_top5 = generate_ai_suggestions(draws, weights, api_key)
-            if ai_top5:
-                print(f"AI suggestions: {ai_top5}")
-                # Merge: put AI suggestions first, fill rest from statistical pool
-                existing_top5 = [s for s in suggestions["top5"] if s not in ai_top5]
-                suggestions["top5"] = (ai_top5 + existing_top5)[:5]
-                analysis["ai_top5_used"] = True
+            llm_candidates = candidates[:DEFAULT_LLM_CANDIDATE_COUNT]
+            llm_result = generate_llm_suggestions(draws, weights, num_freq, llm_candidates, llm_config)
+            ranked_numbers = llm_result["top50"]
+            suggestions = merge_ranked_suggestions(ranked_numbers, candidates)
+            suggestions["top5"] = _stamp(llm_result["top5"])
+            analysis["ai_top5_used"] = True
+            analysis["llm_used"] = True
+            analysis["llm_provider"] = llm_config["provider"]
+            analysis["llm_model"] = llm_result["model"]
+            analysis["llm_summary"] = llm_result["summary"]
+            analysis["llm_candidate_count"] = len(llm_candidates)
+            print(f"AI suggestions: {[s['number'] for s in suggestions['top5']]}")
         except Exception as exc:  # pylint: disable=broad-except
             print(f"AI suggestion failed (falling back to statistical): {exc}", file=sys.stderr)
             analysis["ai_top5_used"] = False
+            analysis["llm_used"] = False
             analysis["ai_error"] = str(exc)
     else:
         analysis["ai_top5_used"] = False
-        if not api_key:
-            print("No OPENAI_API_KEY set – using statistical suggestions only.")
+        analysis["llm_used"] = False
+        print(
+            "No supported LLM credentials found – set GITHUB_MODELS_TOKEN/GITHUB_TOKEN or OPENAI_API_KEY. "
+            "Using statistical suggestions only."
+        )
 
     output = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
@@ -305,11 +511,13 @@ def main() -> None:
         "analysis": analysis,
     }
 
+    ts = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    output_file = os.path.join(DATA_DIR, f"{SUGGESTIONS_PREFIX}_{ts}.json")
     os.makedirs(DATA_DIR, exist_ok=True)
-    with open(OUTPUT_FILE, "w", encoding="utf-8") as fh:
+    with open(output_file, "w", encoding="utf-8") as fh:
         json.dump(output, fh, indent=2, ensure_ascii=False)
-    print(f"Saved suggestions to {OUTPUT_FILE}")
-    print(f"  top5:   {suggestions['top5']}")
+    print(f"Saved suggestions to {output_file}")
+    print(f"  top5:   {[s['number'] for s in suggestions['top5']]}")
     print(f"  top50:  {len(suggestions['top50'])} numbers")
     print(f"  top500: {len(suggestions['top500'])} numbers")
 
