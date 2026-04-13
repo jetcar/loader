@@ -5,11 +5,6 @@ on:
     # Run every day at 21:00 UTC (after the daily Jokker draw at ~18:35 EET / 15:35 UTC)
     - cron: "0 21 * * *"
   workflow_dispatch:
-    inputs:
-      max_pages:
-        description: "Number of result pages to scrape"
-        required: false
-        default: "10"
 
 permissions:
   contents: write   # needed to create releases and upload assets
@@ -37,8 +32,6 @@ jobs:
 
       # -----------------------------------------------------------------------
       - name: Scrape Jokker results
-        env:
-          SCRAPER_MAX_PAGES: ${{ github.event.inputs.max_pages || '10' }}
         run: python scraper/scraper.py
 
       # -----------------------------------------------------------------------
