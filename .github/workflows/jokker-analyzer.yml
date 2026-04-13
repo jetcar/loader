@@ -35,6 +35,10 @@ jobs:
         run: python scraper/scraper.py
 
       # -----------------------------------------------------------------------
+      - name: Evaluate pending suggestions
+        run: python tools/evaluate_draw.py
+
+      # -----------------------------------------------------------------------
       - name: Analyze results and generate suggestions
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
