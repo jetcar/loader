@@ -710,9 +710,13 @@ def main() -> None:
 
     ts = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     output_file = os.path.join(DATA_DIR, f"{SUGGESTIONS_PREFIX}_{ts}.json")
+    latest_file = os.path.join(DATA_DIR, f"{SUGGESTIONS_PREFIX}.json")
     os.makedirs(DATA_DIR, exist_ok=True)
+    serialized = json.dumps(output, indent=2, ensure_ascii=False)
     with open(output_file, "w", encoding="utf-8") as fh:
-        json.dump(output, fh, indent=2, ensure_ascii=False)
+        fh.write(serialized)
+    with open(latest_file, "w", encoding="utf-8") as fh:
+        fh.write(serialized)
     print(f"Saved suggestions to {output_file}")
     print(f"  top5:   {[s['number'] for s in suggestions['top5']]}")
     print(f"  top50:  {len(suggestions['top50'])} numbers")
