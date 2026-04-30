@@ -11,6 +11,7 @@ and produces suggested 7-digit numbers at three confidence levels:
 The output is saved to data/suggestions.json.
 """
 
+import itertools
 import json
 import math
 import os
@@ -43,6 +44,11 @@ SUGGESTIONS_PREFIX = "suggestions"
 
 DIGIT_POSITIONS = 7   # Jokker has 7 digits
 DIGIT_RANGE = 10      # Each digit is 0-9
+# How many top digits per position to include in the wheeling grid.
+# 3 → 3^7 = 2 187 combinations; 4 → 4^7 = 16 384.
+DEFAULT_WHEELING_DIGITS_PER_POSITION: int = int(
+    os.environ.get("WHEELING_DIGITS_PER_POSITION", "3")
+)
 DEFAULT_OPENAI_MODEL = os.environ.get("OPENAI_MODEL", "gpt-4o-mini")
 DEFAULT_GITHUB_MODEL = os.environ.get("GITHUB_MODELS_MODEL", "openai/gpt-4.1-mini")
 DEFAULT_LLM_CANDIDATE_COUNT = 120
@@ -139,10 +145,59 @@ def score_number(number: str, weights: list[list[float]]) -> float:
     return score
 
 
+def generate_wheeled_candidates(
+    counters: list[Counter],
+    weights: list[list[float]],
+    digits_per_position: int = DEFAULT_WHEELING_DIGITS_PER_POSITION,
+) -> tuple[list[tuple[str, float]], dict]:
+    """
+    Wheeling generator for Jokker (7-digit, digits 0-9).
+
+    For each of the 7 positions, select the ``digits_per_position`` most
+    frequently drawn digits.  Then take the Cartesian product of these sets,
+    producing every combination guaranteed to be built from "hot" digits in
+    every position.
+
+    Example with digits_per_position=3:
+        3 choices × 7 positions = 3^7 = 2 187 combinations — every one of
+        which has at least the historically most-common digit in each slot.
+
+    Returns
+    -------
+    candidates : list[tuple[str, float]]
+        Scored and sorted (descending) list of (number, score) pairs.
+    summary : dict
+        Human-readable breakdown of which digits were chosen per position.
+    """
+    n = max(1, min(digits_per_position, DIGIT_RANGE))
+    position_sets: list[list[int]] = []
+    summary: dict = {}
+    for pos in range(DIGIT_POSITIONS):
+        top_digits = sorted(
+            range(DIGIT_RANGE),
+            key=lambda d, p=pos: counters[p].get(d, 0),
+            reverse=True,
+        )[:n]
+        position_sets.append(top_digits)
+        summary[f"position_{pos + 1}"] = {
+            "selected_digits": top_digits,
+            "frequencies": {str(d): counters[pos].get(d, 0) for d in top_digits},
+        }
+
+    candidates: list[tuple[str, float]] = []
+    for combo in itertools.product(*position_sets):
+        number = "".join(str(d) for d in combo)
+        candidates.append((number, score_number(number, weights)))
+
+    candidates.sort(key=lambda x: x[1], reverse=True)
+    return candidates, summary
+
+
 def generate_candidate_pool(
     weights: list[list[float]],
     num_freq: Counter,
     pool_size: int = 5000,
+    wheeled: list[tuple[str, float]] | None = None,
 ) -> list[tuple[str, float]]:
     """
     Generate a large pool of candidate numbers, score each one, and return
@@ -150,6 +205,14 @@ def generate_candidate_pool(
     """
     seen: set[str] = set()
     candidates: list[tuple[str, float]] = []
+
+    # Seed with wheeled candidates first — they guarantee systematic coverage of
+    # the most-frequent digits in every position.
+    if wheeled:
+        for number, score in wheeled:
+            if number not in seen:
+                seen.add(number)
+                candidates.append((number, score))
 
     # Include historically drawn numbers with a bonus
     for number, count in num_freq.most_common(1000):
@@ -653,12 +716,25 @@ def main() -> None:
     if target_draw_label:
         print(f"Target draw label: {target_draw_label}")
 
-    # Generate candidate pool (purely statistical)
+    # --- Wheeling -----------------------------------------------------------
+    # For each position, pick the top-N most-frequent digits and take their
+    # Cartesian product.  This gives full systematic coverage of the "hot
+    # digit" space without relying on random sampling.
+    dppos = DEFAULT_WHEELING_DIGITS_PER_POSITION
+    print(f"Generating wheeled candidates (top-{dppos} digits/position)…")
+    wheeled_candidates, wheeling_summary = generate_wheeled_candidates(counters, weights, dppos)
+    print(f"  Wheeled combinations: {len(wheeled_candidates)}")
+
+    # Generate candidate pool — wheeled candidates seed it for guaranteed coverage
     print("Generating candidate pool…")
-    candidates = generate_candidate_pool(weights, num_freq, pool_size=5000)
+    candidates = generate_candidate_pool(weights, num_freq, pool_size=5000, wheeled=wheeled_candidates)
 
     suggestions = build_suggestions(candidates, target_draw_label=target_draw_label)
     analysis = build_analysis_report(draws, counters, weights, num_freq)
+    analysis["wheeling_used"] = True
+    analysis["wheeling_digits_per_position"] = dppos
+    analysis["wheeling_candidates"] = len(wheeled_candidates)
+    analysis["wheeling_summary"] = wheeling_summary
     if prev_performance:
         analysis["prev_suggestions_performance"] = prev_performance
 
